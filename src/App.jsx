@@ -24,6 +24,16 @@ function App() {
     setFilteredItem(filterItem.filter((item) => item !== itemDelete));
   };
 
+  const filteredData = data.filter((item) => {
+    return filterItem.every(
+      (filter) =>
+        item.languages.includes(filter) ||
+        item.tools.includes(filter) ||
+        item.role === filter ||
+        item.level === filter,
+    );
+  });
+
   return (
     <>
       <div>
@@ -34,8 +44,8 @@ function App() {
             onDelete={deleteItem}
           />
         ) : null}
-        <main className="flex flex-col gap-4 p-4">
-          {data.map((i, index) => (
+        <main className="flex flex-1 flex-col gap-4 p-4">
+          {(filteredData.length > 0 ? filteredData : data).map((i, index) => (
             <Card
               onClick={filter}
               key={index}
