@@ -1,10 +1,10 @@
 import icon from "./assets/icon-remove.svg";
 
-const FilterButton = () => {
+const FilterButton = ({ onClick, text }) => {
   return (
     <div>
-      <span></span>
-      <button>
+      <span>{text}</span>
+      <button onClick={onClick}>
         <img src={icon} />
       </button>
     </div>
