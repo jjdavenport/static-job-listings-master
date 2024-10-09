@@ -5,11 +5,9 @@ import Footer from "./components/footer";
 import Nav from "./components/nav";
 
 function App() {
-  const [filtered, setFiltered] = useState(false);
   const [filterItem, setFilteredItem] = useState([]);
 
   const toggle = () => {
-    setFiltered(!filtered);
     setFilteredItem([]);
   };
 
@@ -17,7 +15,6 @@ function App() {
     if (!filterItem.includes(item)) {
       setFilteredItem([...filterItem, item]);
     }
-    setFiltered(true);
   };
 
   const deleteItem = (itemDelete) => {
@@ -36,15 +33,15 @@ function App() {
 
   return (
     <>
-      <div>
-        {filtered ? (
+      <div className="bg-lightGrayishCyanBg font-custom text-default flex h-full min-h-screen flex-col gap-10 p-4 pt-20 font-medium">
+        {filterItem.length > 0 ? (
           <Nav
             onClick={toggle}
             filterItems={filterItem}
             onDelete={deleteItem}
           />
         ) : null}
-        <main className="flex flex-1 flex-col gap-4 p-4">
+        <main className="flex flex-1 flex-col gap-10">
           {(filteredData.length > 0 ? filteredData : data).map((i, index) => (
             <Card
               onClick={filter}
