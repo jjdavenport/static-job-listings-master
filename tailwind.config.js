@@ -17,6 +17,10 @@ export default {
       fontSize: {
         default: ".9375rem",
       },
+      backgroundImage: {
+        mobile: "url('/src/components/assets/bg-header-mobile.svg')",
+        desktop: "url('/src/components/assets/bg-header-desktop.svg')",
+      },
     },
   },
   plugins: [],

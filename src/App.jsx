@@ -33,34 +33,39 @@ function App() {
 
   return (
     <>
-      <div className="bg-lightGrayishCyanBg font-custom text-default flex h-full min-h-screen flex-col gap-10 p-4 pt-20 font-medium">
-        {filterItem.length > 0 ? (
-          <Nav
-            onClick={toggle}
-            filterItems={filterItem}
-            onDelete={deleteItem}
-          />
-        ) : null}
-        <main className="flex flex-1 flex-col gap-10">
-          {(filteredData.length > 0 ? filteredData : data).map((i, index) => (
-            <Card
-              onClick={filter}
-              key={index}
-              isNew={i.new}
-              isFeatured={i.featured}
-              logo={i.logo}
-              company={i.company}
-              postedAt={i.postedAt}
-              contract={i.contract}
-              location={i.location}
-              languages={i.languages}
-              tools={i.tools}
-              position={i.position}
-              role={i.role}
-              level={i.level}
-            />
-          ))}
-        </main>
+      <div className="flex h-full min-h-screen flex-col bg-lightGrayishCyanBg font-custom text-default font-medium">
+        <div className="flex flex-1 flex-col gap-6">
+          <div className="bg-mobile md:bg-desktop flex h-40 bg-desaturatedDarkCyan bg-cover bg-no-repeat p-4"></div>
+          <div className="-mt-16 p-4">
+            {filterItem.length > 0 ? (
+              <Nav
+                onClick={toggle}
+                filterItems={filterItem}
+                onDelete={deleteItem}
+              />
+            ) : null}
+          </div>
+          <main className="flex flex-col gap-10 p-4">
+            {(filteredData.length > 0 ? filteredData : data).map((i, index) => (
+              <Card
+                onClick={filter}
+                key={index}
+                isNew={i.new}
+                isFeatured={i.featured}
+                logo={i.logo}
+                company={i.company}
+                postedAt={i.postedAt}
+                contract={i.contract}
+                location={i.location}
+                languages={i.languages}
+                tools={i.tools}
+                position={i.position}
+                role={i.role}
+                level={i.level}
+              />
+            ))}
+          </main>
+        </div>
         <Footer />
       </div>
     </>

@@ -14,39 +14,41 @@ const Card = ({
   onClick,
 }) => {
   const style = () => {
-    return "bg-lightGrayishCyanBg hover:bg-desaturatedDarkCyan rounded-md px-2 py-1 transition-colors duration-300 ease-in-out hover:text-white";
+    return "bg-lightGrayishCyanBg hover:bg-desaturatedDarkCyan rounded-md px-2 py-1 transition-colors duration-300 ease-in-out hover:text-white flex flex-wrap";
   };
 
   return (
     <article
-      className={`${isNew && "border-desaturatedDarkCyan border-l-4"} flex flex-col gap-2 rounded-md bg-white p-4 shadow-lg`}
+      className={`${isNew && "border-l-4 border-desaturatedDarkCyan"} flex flex-col gap-2 rounded-md bg-white p-4 shadow-lg`}
     >
-      <img className="-mt-10 w-12" src={logo} />
+      <img className="-mt-10 w-14" src={logo} />
       <div className="divide-y-2">
-        <div className="flex flex-col gap-1 pb-2">
+        <div className="flex flex-col gap-2 pb-3">
           <div className="flex gap-4">
-            <span className="text-desaturatedDarkCyan font-bold">
+            <span className="font-bold text-desaturatedDarkCyan">
               {company}
             </span>
-            {isFeatured ? (
-              <span className="bg-veryDarkGrayishCyan rounded-full px-2 uppercase text-white">
-                Featured
-              </span>
-            ) : null}
             {isNew ? (
-              <span className="bg-desaturatedDarkCyan rounded-full px-2 uppercase text-white">
+              <span className="rounded-full bg-desaturatedDarkCyan px-2 uppercase text-white">
                 New!
               </span>
             ) : null}
+            {isFeatured ? (
+              <span className="rounded-full bg-veryDarkGrayishCyan px-2 uppercase text-white">
+                Featured
+              </span>
+            ) : null}
           </div>
-          <span className="text-veryDarkGrayishCyan font-bold">{position}</span>
-          <div className="text-darkGrayishCyan flex gap-4">
+          <span className="text-lg font-bold text-veryDarkGrayishCyan transition-colors duration-300 ease-in-out hover:cursor-pointer hover:text-desaturatedDarkCyan">
+            {position}
+          </span>
+          <div className="flex gap-4 text-darkGrayishCyan">
             <span>{postedAt}</span>
             <span>{contract}</span>
             <span>{location}</span>
           </div>
         </div>
-        <div className="text-desaturatedDarkCyan flex flex-wrap gap-4 pt-2 font-bold">
+        <div className="flex flex-wrap gap-4 pt-3 font-bold text-desaturatedDarkCyan">
           <button className={style()} onClick={() => onClick(role)}>
             {role}
           </button>
