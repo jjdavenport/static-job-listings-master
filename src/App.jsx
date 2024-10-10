@@ -34,9 +34,9 @@ function App() {
   return (
     <>
       <div className="flex h-full min-h-screen flex-col bg-lightGrayishCyanBg font-custom text-default font-medium">
-        <div className="flex flex-1 flex-col gap-6">
-          <div className="bg-mobile md:bg-desktop flex h-40 bg-desaturatedDarkCyan bg-cover bg-no-repeat p-4"></div>
-          <div className="-mt-16 p-4">
+        <div className="flex flex-1 flex-col gap-12">
+          <div className="~md/2xl:~h-40/52 flex bg-desaturatedDarkCyan bg-mobile bg-cover bg-no-repeat p-4 md:bg-desktop"></div>
+          <div className="~md/2xl:~px-4/20 -mt-[5rem] p-4 md:py-0">
             {filterItem.length > 0 ? (
               <Nav
                 onClick={toggle}
@@ -45,7 +45,7 @@ function App() {
               />
             ) : null}
           </div>
-          <main className="flex flex-col gap-10 p-4">
+          <main className="~md/2xl:~px-4/20 flex flex-col gap-10 p-4">
             {(filteredData.length > 0 ? filteredData : data).map((i, index) => (
               <Card
                 onClick={filter}

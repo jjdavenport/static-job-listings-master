@@ -1,8 +1,14 @@
+import fluid, { extract, screens } from "fluid-tailwind";
+
 /** @type {import('tailwindcss').Config} */
 
 export default {
-  content: ["./src/**/*.{html,js,jsx}", "./index.html"],
+  content: {
+    files: ["./src/**/*.{html,js,jsx}", "./index.html"],
+    extract,
+  },
   theme: {
+    screens,
     extend: {
       colors: {
         lightGrayishCyanBg: "hsl(180, 52%, 96%)",
@@ -23,5 +29,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [fluid],
 };

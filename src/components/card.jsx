@@ -14,16 +14,16 @@ const Card = ({
   onClick,
 }) => {
   const style = () => {
-    return "bg-lightGrayishCyanBg hover:bg-desaturatedDarkCyan rounded-md px-2 py-1 transition-colors duration-300 ease-in-out hover:text-white flex flex-wrap";
+    return "bg-lightGrayishCyanBg hover:bg-desaturatedDarkCyan md:h-fit rounded-md px-2 py-1 transition-colors duration-300 ease-in-out hover:text-white flex flex-wrap";
   };
 
   return (
     <article
-      className={`${isNew && "border-l-4 border-desaturatedDarkCyan"} flex flex-col gap-2 rounded-md bg-white p-4 shadow-lg`}
+      className={`${isNew && "border-l-4 border-desaturatedDarkCyan"} flex flex-col gap-2 rounded-md bg-white p-4 shadow-lg md:flex-row`}
     >
-      <img className="-mt-10 w-14" src={logo} />
-      <div className="divide-y-2">
-        <div className="flex flex-col gap-2 pb-3">
+      <img className="-mt-10 w-14 md:mt-0 md:object-contain" src={logo} />
+      <div className="flex flex-col divide-y-2 md:w-full md:flex-row md:justify-between md:gap-2 md:divide-y-0">
+        <div className="flex flex-col gap-2 pb-3 md:pb-0">
           <div className="flex gap-4">
             <span className="font-bold text-desaturatedDarkCyan">
               {company}
@@ -48,7 +48,7 @@ const Card = ({
             <span>{location}</span>
           </div>
         </div>
-        <div className="flex flex-wrap gap-4 pt-3 font-bold text-desaturatedDarkCyan">
+        <div className="~md/2xl:~gap-2/4 flex flex-wrap items-center pt-3 font-bold text-desaturatedDarkCyan md:pt-0">
           <button className={style()} onClick={() => onClick(role)}>
             {role}
           </button>
